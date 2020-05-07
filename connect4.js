@@ -4,7 +4,7 @@
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
  * board fills (tie)
  */
-let playerTurn = 'red';
+
 let WIDTH = 7;
 let HEIGHT = 6;
 let lockClick = 1;
@@ -16,12 +16,13 @@ let startButton = document.querySelector('#start');
 let currPlayer = 1; // active player: 1 or 2
 let board = []; // array of rows, each row is array of cells  (board[y][x])
 
+
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+
   for(let i = 0; i <= HEIGHT; i++){
     
     board[i] = new Array(WIDTH);
@@ -65,7 +66,6 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 0
   let lowestY = null;
   for (let y = 0; y < HEIGHT; y++) {
 
@@ -74,13 +74,15 @@ function findSpotForCol(x) {
 
     }
   }
+//   return the lowestY value on the board within that column
   return lowestY;
 }
+
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+
   let selectedSlot = document.getElementById(`${y}-${x}`)
   let newPiece = document.createElement('div');
   
@@ -105,15 +107,19 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(msg) {
-  // TODO: pop up alert message
+
+    // select the winner's div and then add an h2 that says winner
   changeTurn();
   let winner = 'player' + currPlayer;
   let winnerDiv = document.querySelector(`#${winner}`);
 
+    //changeTurn will ungray the winner to show that they are the one who has one.
   changeTurn();
   let winningMsg = document.createElement('h2');
   winningMsg.innerText = 'WINNER!';
   winnerDiv.append(winningMsg);
+
+    //with a lockClick value of anything but 0 the user cannot continue playing until they have clicked reset
   lockClick = -1;
 }
 
@@ -131,30 +137,20 @@ function handleClick(evt) {
   }
 
   // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
   placeInTable(y, x);
   board[y][x] = currPlayer;
 
-
-  checkForFullBoard();
-  //changeTurn();
 
   // check for win
   if (checkForWin()) {
     return endGame(`The ${currPlayer == 1 ? 'Blue' : 'Red'} Player won!`);
   }
 
-  // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-
-  // switch players
-  // TODO: switch currPlayer 1 <-> 2
   changeTurn();
 }
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
-
 function checkForWin() {
   function _win(cells) {
     // Check four cells to see if they're all color of current player
@@ -171,8 +167,9 @@ function checkForWin() {
     );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
-  // This will check for all combinations of winning sets in the game of Connect 4.
+
+  // This will check for all combinations of winning sets in the game of Connect 4. 
+  // _win will then iterate and see if all of the cells are from the same player.
 
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
@@ -188,6 +185,7 @@ function checkForWin() {
   }
 }
 
+    //Switch current player to the other player and grey out the non-active player.  
 function changeTurn(){
   redTeam.classList.toggle('greyed');
   blueTeam.classList.toggle('greyed');
@@ -201,14 +199,8 @@ function changeTurn(){
   }
 }
 
-function checkForFullBoard(){
 
-  for (let arr of board) {
-    arr.every(val => val);
-  }
-
-}
-
+    // Reset the board as a new game, remove any winner tags.
 function reset(){
 
   board = [];
@@ -219,6 +211,7 @@ function reset(){
     element.innerText = '';
   }
   
+    // Allows the user to place pieces again if the lockClick was previously set to anything not 0
   lockClick = 0;
 
   makeBoard();
@@ -226,15 +219,19 @@ function reset(){
 
 }
 
+
+// Allow the game to start by allowing players to drop pieces.
 function startGame(){
 
   lockClick = 0;
 
 }
 
+// Listeners for both buttons.
 resetButton.addEventListener('click', reset);
 startButton.addEventListener('click', startGame);
 
+// Initalizes the board internally and on the dom and then sets the non-active player to greyed-out
 makeBoard();
 makeHtmlBoard();
 redTeam.classList.toggle('greyed');

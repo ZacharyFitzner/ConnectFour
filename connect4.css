@@ -1,6 +1,5 @@
-body{
 
-}
+/* This positions the title spans in the center */
 #gameTitle{
   display: flex;
   margin-right: 37vw;
@@ -8,6 +7,31 @@ body{
   justify-content: space-evenly;
 }
 
+/* redSpan and blueSpan make the title words red and blue corresponding with their playerside */
+#redSpan{
+    color: #d63031;
+  }
+
+#blueSpan{
+    color: #0984e3;
+  }
+  
+/* All titles on the page for top and player sides */
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 52px;
+    color: #2d3436;
+  }
+
+/* This is specifically for the "Winning" text displayed upon winning */
+  h2{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 65px;
+    color: #55efc4;
+  }
+
+
+/* This is a div for the table and the left and right signifiers */
 #gameContent{
   display: flex;
   justify-content: space-evenly;
@@ -25,17 +49,12 @@ div{
   margin-top: 15px;
 }
 
+/* Player Boxes are the Divs underneath each of the Player Titles, each color corresponding with their team */
 #player1Box{
 
   background-color: #d63031;
   height: 150px;
   opacity: 75%;
-
-}
-
-.greyed{
-
-  opacity: 30%;
 
 }
 
@@ -46,18 +65,14 @@ div{
   opacity: 75%;
 }
 
-h1{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 52px;
-  color: #2d3436;
-}
+/* This will give the left and right turn tables a greyed look when it's not their turn */
+.greyed{
 
-h2{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 65px;
-  color: #55efc4;
-}
-
+    opacity: 30%;
+  
+  }
+  
+/* Spacing and text formatting for submit and reset buttons */
 #buttons{
 
   display: flex;
@@ -72,10 +87,10 @@ button{
   padding-right: 60px;
   font-family: 'Patrick Hand', cursive;
 }
+
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
-  /* TODO: make into circles */
   margin: 5px;
   width: 80%;
   height: 80%;
@@ -84,7 +99,17 @@ button{
   opacity: 70%;
 }
 
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+/* Change between red and blue depending on the currPlayer (current Player) */
+.red{
+
+    background-color: #d63031;
+  }
+  
+  .blue{
+  
+    background-color: #0984e3;
+  }
+  
 
 /* column-top is table row of clickable areas for each column */
 
@@ -96,20 +121,6 @@ button{
   background-color: #ffeaa7;
 }
 
-.red{
 
-  background-color: #d63031;
-}
-#redSpan{
-  color: #d63031;
-}
-
-.blue{
-
-  background-color: #0984e3;
-}
-#blueSpan{
-  color: #0984e3;
-}
 
 

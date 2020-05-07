@@ -1,31 +1,48 @@
 <!doctype html>
 <head>
   <title>Connect Four</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet"> 
+
+  <!-- Main Style Sheet -->
   <link href="connect4.css" rel="stylesheet">
 </head>
 <body>
-  <span></span>
-<h1 id= 'gameTitle'> <span id= 'redSpan'>Connect</span><span id= 'blueSpan'> Four</span></h1>
+
+    <!-- Connect Four title with different color spans for each word -->
+    <h1 id= 'gameTitle'> 
+        <span id= 'redSpan'>Connect</span>
+        <span id= 'blueSpan'> Four</span>
+    </h1>
+
+
+<!-- All of the game content including the board and player sides -->
 <div id='gameContent'>
-<div id = 'player1'>
-  <h1>Red Team</h1>
-  <div id = 'player1Box'></div>
-</div>
 
-<div id="game">
-  <table id="board"></table>
-  <div id ="buttons">
-    <button id = 'start'>Start</button>
-    <button id = 'reset'>Reset</button>
-  </div>
-</div>
+    <!-- Player1 (Red) div with title and an associated box with the same color -->
+    <div id = 'player1'>
+        <h1>Red Team</h1>
+        <div id = 'player1Box'></div>
+    </div>
 
-<div id = 'player2'>
-  <h1>Blue Team</h1>
-  <div id = 'player2Box'></div>
-</div>
+    <!-- gameboard and buttons -->
+    <div id="game">
+        <table id="board"></table>
+
+        <div id ="buttons">
+            <button id = 'start'>Start</button>
+            <button id = 'reset'>Reset</button>
+        </div>
+    </div>
+
+    <!-- Player2 (Blue) div with title and an associated box with the same color -->
+    <div id = 'player2'>
+        <h1>Blue Team</h1>
+        <div id = 'player2Box'></div>
+    </div>
+    
 </div>
 
 <script src="connect4.js"></script>
