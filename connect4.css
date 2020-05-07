@@ -1,0 +1,115 @@
+body{
+
+}
+#gameTitle{
+  display: flex;
+  margin-right: 37vw;
+  margin-left: 37vw;
+  justify-content: space-evenly;
+}
+
+#gameContent{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* game board table */
+
+#board td {
+  width: 75px;
+  height: 75px;
+  border: solid 1px #666;
+}
+
+div{
+  margin-top: 15px;
+}
+
+#player1Box{
+
+  background-color: #d63031;
+  height: 150px;
+  opacity: 75%;
+
+}
+
+.greyed{
+
+  opacity: 30%;
+
+}
+
+#player2Box{
+
+  background-color: #0984e3;
+  height: 150px;
+  opacity: 75%;
+}
+
+h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 52px;
+  color: #2d3436;
+}
+
+h2{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 65px;
+  color: #55efc4;
+}
+
+#buttons{
+
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+button{
+  font-size: 40px;
+  padding: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-family: 'Patrick Hand', cursive;
+}
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  border-style: solid;
+  opacity: 70%;
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 1px #dfe6e9;
+} 
+
+#column-top td:hover {
+  background-color: #ffeaa7;
+}
+
+.red{
+
+  background-color: #d63031;
+}
+#redSpan{
+  color: #d63031;
+}
+
+.blue{
+
+  background-color: #0984e3;
+}
+#blueSpan{
+  color: #0984e3;
+}
+
+
